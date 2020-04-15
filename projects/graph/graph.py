@@ -7,7 +7,6 @@ from util import Stack
 
 
 class Graph:
-
     """Represent a graph as a dictionary of vertices mapping labels to edges."""
 
     def __init__(self):
@@ -209,7 +208,8 @@ class Graph:
             return path
         for child_vert in self.get_neighbors(start_vert):
             if child_vert not in visited:
-                new_path = self.dfs_recursive(child_vert, target_value, visited, path)
+                new_path = self.dfs_recursive(child_vert, target_value,
+                                              visited, path)
                 if new_path:
                     return new_path
         return None
@@ -268,7 +268,6 @@ if __name__ == "__main__":
     # '''
     # graph.dft(1)
     # graph.dft_recursive(1)
-
     """
     Valid BFS path:
         [1, 2, 4, 6]

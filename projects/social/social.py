@@ -22,10 +22,8 @@ class SocialGraph:
         if user_id == friend_id:
             return
             # print("WARNING: You cannot be friends with yourself")
-        elif (
-            friend_id in self.friendships[user_id]
-            or user_id in self.friendships[friend_id]
-        ):
+        elif (friend_id in self.friendships[user_id]
+              or user_id in self.friendships[friend_id]):
             return
             # print("WARNING: Friendship already exists")
         else:
