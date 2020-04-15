@@ -1,8 +1,13 @@
 import random
 
+
+
 class User:
     def __init__(self, name):
         self.name = name
+
+    def __repr__(self):
+        return f"{self.name}"
 
 class SocialGraph:
     def __init__(self):
@@ -15,9 +20,11 @@ class SocialGraph:
         Creates a bi-directional friendship
         """
         if user_id == friend_id:
-            print("WARNING: You cannot be friends with yourself")
+            return
+            #print("WARNING: You cannot be friends with yourself")
         elif friend_id in self.friendships[user_id] or user_id in self.friendships[friend_id]:
-            print("WARNING: Friendship already exists")
+            return
+            #print("WARNING: Friendship already exists")
         else:
             self.friendships[user_id].add(friend_id)
             self.friendships[friend_id].add(user_id)
@@ -32,7 +39,7 @@ class SocialGraph:
 
     def populate_graph(self, num_users, avg_friendships):
         """
-        Takes a number of users and an average number of friendships
+        Takes a number of users and an avera add.ge number of friendships
         as arguments
 
         Creates that number of users and a randomly distributed friendships
@@ -44,13 +51,7 @@ class SocialGraph:
         self.last_id = 0
         self.users = {}
         self.friendships = {}
-        # !!!! IMPLEMENT ME
-
-        # Add users
-        #use add_user num_user times
-
-        # Create friendships
-        #
+       
 
         for i in range(0, num_users): 
             self.add_user(f'User {i}')
@@ -77,6 +78,7 @@ class SocialGraph:
 
         The key is the friend's ID and the value is the path.
         """
+
         visited = {}  # Note that this is a dictionary, not a set
         # !!!! IMPLEMENT ME
         return visited
@@ -85,6 +87,7 @@ class SocialGraph:
 if __name__ == '__main__':
     sg = SocialGraph()
     sg.populate_graph(10, 2)
+    
     print(sg.friendships)
-    connections = sg.get_all_social_paths(1)
-    print(connections)
+    # connections = sg.get_all_social_paths(1)
+    # print(connections)

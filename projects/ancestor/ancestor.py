@@ -2,11 +2,19 @@
 inputs : vertex or starting point, a list containing key value pairs 
 output : earliest ancestor or destination vertex 
 
-key value pairs need to be constructed in a graph
+ * key value pairs need to be constructed in a graph --> use graph class from previous assignment to complete 
 
-use graph class from previous assignment to construct a graph
+ * perform a dft to traverse the graph until it reaches a vertex without any neighbors
 
-perform a dft to travel up the graph until it reaches a vertex without any neighbors
+ * edges only point downward 
+
+ * create a method that gets the vertices that point to the current node 
+
+ * store a node's parents in a set to get the lowest value if more than one earliest ancestor exist 
+
+
+
+
 '''
 from util import Stack 
 class Graph:
@@ -58,7 +66,7 @@ class Graph:
             return None
 
 def create_graph(ancestors): 
-# CONSTRUCT THE GRAPH: g   
+    # construct a new graph using class from previous assignment with an additional method: get parents
     graph = Graph()
 
     # for each pair in ancestors: 
@@ -81,18 +89,24 @@ def create_graph(ancestors):
 def earliest_ancestor(ancestors, starting_node):
     #create a graph from list of ancestors 
     graph = create_graph(ancestors)
-    #create a stack 
-    searching = Stack()
-    #add starting node to stack 
-    searching.push(starting_node)
-    #create a set to keep track of visited vertices
-    visited = []
-    #keep track of parents 
-    parents_list = []
 
-    #check if starting node has parents 
+    #check if starting node has ancestors 
     if graph.get_parents(starting_node) is None: 
         return -1 
+
+    #create a stack 
+    searching = Stack()
+
+    #add starting node to stack 
+    searching.push(starting_node)
+
+    #create a set to keep track of visited nodes
+    visited = []
+
+    #keep track of parents b/c a node can have two parents
+    parents_list = []
+
+    #complete a dft 
 
     #while stack is not empty: 
     while searching.size() > 0: 
@@ -117,18 +131,3 @@ def earliest_ancestor(ancestors, starting_node):
 
     #return the smallest value of the earliest ancestors      
     return min(parents_list[-1])
-
-    
-    
-
-
-    #DEPTH FIRST TRAVERSAL
-
-    # problem: need to get parents of the node or nodes that point to current node 
-
-    # it is like doing a dfs but backwards 
-    # possible solution #1: create a method that does the opposite of get_neighbors
-
-    #possible solution #2: create an inverse version of the graph where children are at the top
-    # iterate through 
-
