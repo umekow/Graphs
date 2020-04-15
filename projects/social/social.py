@@ -21,10 +21,13 @@ class SocialGraph:
         """
         if user_id == friend_id:
             return
-            #print("WARNING: You cannot be friends with yourself")
-        elif friend_id in self.friendships[user_id] or user_id in self.friendships[friend_id]:
+            # print("WARNING: You cannot be friends with yourself")
+        elif (
+            friend_id in self.friendships[user_id]
+            or user_id in self.friendships[friend_id]
+        ):
             return
-            #print("WARNING: Friendship already exists")
+            # print("WARNING: Friendship already exists")
         else:
             self.friendships[user_id].add(friend_id)
             self.friendships[friend_id].add(user_id)
@@ -53,12 +56,12 @@ class SocialGraph:
         self.friendships = {}
 
         for i in range(0, num_users):
-            self.add_user(f'User {i}')
+            self.add_user(f"User {i}")
 
         possible_friendships = []
 
         for user_id in self.users:
-            for friend_id in range(user_id+1, self.last_id+1):
+            for friend_id in range(user_id + 1, self.last_id + 1):
                 possible_friendships.append((user_id, friend_id))
 
         random.shuffle(possible_friendships)
@@ -82,7 +85,7 @@ class SocialGraph:
         return visited
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sg = SocialGraph()
     sg.populate_graph(10, 2)
 

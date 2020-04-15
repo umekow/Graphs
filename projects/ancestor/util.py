@@ -1,8 +1,7 @@
-
 # Note: This Queue class is sub-optimal. Why?
 
 
-class Queue():
+class Queue:
     def __init__(self):
         self.queue = []
 
@@ -19,7 +18,7 @@ class Queue():
         return len(self.queue)
 
 
-class Stack():
+class Stack:
     def __init__(self):
         self.stack = []
 

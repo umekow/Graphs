@@ -1,4 +1,4 @@
-'''
+"""
 inputs : vertex or starting point, a list containing key value pairs 
 output : earliest ancestor or destination vertex 
 
@@ -15,7 +15,7 @@ output : earliest ancestor or destination vertex
 
 
 
-'''
+"""
 from util import Stack
 
 
