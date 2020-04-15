@@ -1,16 +1,16 @@
 """
-inputs : vertex or starting point, a list containing key value pairs 
-output : earliest ancestor or destination vertex 
+inputs : vertex or starting point, a list containing key value pairs
+output : earliest ancestor or destination vertex
 
- * key value pairs need to be constructed in a graph --> use graph class from previous assignment to complete 
+ * key value pairs need to be constructed in a graph --> use graph class from previous assignment to complete
 
  * perform a dft to traverse the graph until it reaches a vertex without any neighbors
 
- * edges only point downward 
+ * edges only point downward
 
- * create a method that gets the vertices that point to the current node 
+ * create a method that gets the vertices that point to the current node
 
- * store a node's parents in a set to get the lowest value if more than one earliest ancestor exist 
+ * store a node's parents in a set to get the lowest value if more than one earliest ancestor exist
 
 
 
