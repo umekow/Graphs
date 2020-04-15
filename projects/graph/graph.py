@@ -82,14 +82,12 @@ class Graph:
         Print each vertex in depth-first order
         beginning from starting_vertex.
         """
-        
         # create a stack to store current
         searching = Stack()
         #push starting vertex to stack 
         searching.push(starting_vertex)
         # create a set for visited items; used a set because the big o of using the in keyword is better for sets 
         visited = set()
-
         # while stack is not empty: 
         while searching.size() > 0: 
             # get last item on stack 
