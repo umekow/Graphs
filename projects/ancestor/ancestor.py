@@ -84,6 +84,8 @@ def earliest_ancestor(ancestors, starting_node):
     searching.push(starting_node)
     #create a set to keep track of visited vertices
     visited = []
+    #keep track of parents 
+    parents_list = []
 
     #check if starting node has parents 
     if graph.get_parents(starting_node) is None: 
@@ -99,16 +101,24 @@ def earliest_ancestor(ancestors, starting_node):
             visited.append(current_node)
             #if there are any parents: 
             if graph.get_parents(current_node): 
-                
+                parents = set()
                 for parent in graph.get_parents(current_node): 
                     # add parent to stack    
                     searching.push(parent)
+                    #add parent to parents set
+                    parents.add(parent)
+                #add parents to parents list
+                parents_list.append(parents)
 
-    return visited[-1]
+                    
+    return min(parents_list[-1])
+
+    
     
 
-    ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
-    print(earliest_ancestor(ancestors, 6))
+ancestors = [(1, 3), (2, 3), (3, 6), (5, 6), (5, 7), (4, 5), (4, 8), (8, 9), (11, 8), (10, 1)]
+print(earliest_ancestor(ancestors, 6))
+
 
     #DEPTH FIRST TRAVERSAL
 
