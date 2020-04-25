@@ -10,7 +10,7 @@ Your client is also interested in how the performance will scale as more users j
 
 It will be easier to build your extended social network if you have users to test it with. `populate_graph()` takes in a number of users to create and the average number of friends each user should have and creates them.
 
-```
+``` cccccccccccccc                                                                                    
 >>> sg = SocialGraph()
 >>> sg.populate_graph(10, 2)  # Creates 10 users with an average of 2 friends each
 >>> print(sg.friendships)
